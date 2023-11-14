@@ -1,8 +1,11 @@
 package controller;
 
 import model.User.ChristmasUser;
+import model.menu.ChristmasMenu;
 import view.InputView;
 import view.OutputView;
+
+import java.util.Map;
 
 public class ChristmasController {
     private static ChristmasUser user;
@@ -33,5 +36,10 @@ public class ChristmasController {
 
     public void requestPrintMenu() {
         OutputView.printMenu(user.getOrder());
+    }
+
+    public void requestPrintAmountBefore() {
+        user.sumAmountBefore();
+        OutputView.printTotalOrderAmountBefore(user.getTotalPrice());
     }
 }
