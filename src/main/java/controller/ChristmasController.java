@@ -1,6 +1,7 @@
 package controller;
 
 import model.User.ChristmasUser;
+import model.event.ChristmasEvent;
 import model.menu.ChristmasMenu;
 import view.InputView;
 import view.OutputView;
@@ -41,5 +42,13 @@ public class ChristmasController {
     public void requestPrintAmountBefore() {
         user.sumAmountBefore();
         OutputView.printTotalOrderAmountBefore(user.getTotalPrice());
+    }
+
+    public void requestPrintGiftMenu() {
+        if (ChristmasEvent.getGiveChampagnePrice() <= user.getTotalPrice()) {
+            OutputView.printGiftMenu("샴페인 1개");
+            return;
+        }
+        OutputView.printGiftMenu("없음");
     }
 }
