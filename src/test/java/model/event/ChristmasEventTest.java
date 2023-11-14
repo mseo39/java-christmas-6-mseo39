@@ -23,6 +23,19 @@ public class ChristmasEventTest extends NsTest {
         assertThat(discount.get("크리스마스 디데이 할인")).isEqualTo(3400);
     }
 
+    @Test
+    void 크리스마스디데이할인_범위_벗어난_테스트() {
+        Map<String, Integer> discount = new HashMap<>();
+        Map<String, Object> dayData = new HashMap<>();
+        dayData.put("할인금액", 0);
+        dayData.put("엽업일", "평일");
+        dayData.put("별유무", true);
+
+        ChristmasEvent.applyChristmasDDayDiscount(26, dayData, discount);
+
+        assertThat(discount.size()).isEqualTo(0);
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
