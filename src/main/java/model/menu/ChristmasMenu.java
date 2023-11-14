@@ -1,5 +1,7 @@
 package model.menu;
 
+import java.util.Map;
+
 public class ChristmasMenu {
     private ChristmasMenu() {
 
@@ -75,5 +77,14 @@ public class ChristmasMenu {
             }
         }
         return false;
+    }
+    private static int getCountForDessert(Map<String, Integer> order) {
+        int count = 0;
+        for (Map.Entry<String, Integer> entry : order.entrySet()) {
+            if (ChristmasMenu.isValidDessert(entry.getKey())) {
+                count += entry.getValue();
+            }
+        }
+        return count;
     }
 }
