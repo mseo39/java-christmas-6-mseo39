@@ -51,4 +51,14 @@ public class ChristmasController {
         }
         OutputView.printGiftMenu("없음");
     }
+
+    public void requestPrintBenefitsDetails() {
+        Map<String, Integer> benefit = ChristmasEvent.ResultChristmasDDayDiscount(user.getDay(),
+                user.getTotalPrice(),
+                user.getOrder());
+        OutputView.printBenefitsDetails(benefit, user.getTotalPrice());
+        if (user.getTotalPrice()>=10000)
+            user.setTotalDiscount(benefit.values().stream().mapToInt(Integer::intValue).sum());
+    }
+
 }
