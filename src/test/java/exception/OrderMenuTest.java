@@ -4,6 +4,9 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import christmas.Application;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -36,6 +39,16 @@ public class OrderMenuTest extends NsTest {
     @Test
     void 없는메뉴일때_테스트() {
         assertThatThrownBy(() -> OrderMenu.menuValid("초코우유"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 메뉴중복일때_테스트() {
+        Map<String, Integer> order = new HashMap<>();
+        order.put("초코케이크", 1);
+        order.put("제로콜라", 1);
+
+        assertThatThrownBy(() -> OrderMenu.menuDuplication(order, "초코케이크"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
