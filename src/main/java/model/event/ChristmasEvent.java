@@ -53,4 +53,10 @@ public class ChristmasEvent {
         }
     }
 
+    private static void applySpecialDiscount(Map<String, Object> dayData, Map<String, Integer> discount) {
+        if (Boolean.parseBoolean(String.valueOf(dayData.get("별유무")))) {
+            discount.put("특별 할인", starDayDiscount);
+        }
+    }
+
 }
