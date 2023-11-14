@@ -72,4 +72,8 @@ public class ChristmasController {
         OutputView.printEstimatedAmountAfter(user.getTotalPrice() - user.getTotalDiscount());
     }
 
+    public void requestPrintBadge() {
+        OutputView.printEventBadge(user.getTotalDiscount());
+    }
+
 }
