@@ -27,4 +27,7 @@ public class ChristmasController {
         user.setOrder(InputView.readMenu());
     }
 
+    public static void requestPrintGuide() {
+        OutputView.printBenefitsGuide(user.getMonth(), user.getDay());
+    }
 }
