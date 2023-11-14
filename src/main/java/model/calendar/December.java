@@ -34,4 +34,11 @@ public class December {
 
     private December() {
     }
+
+    public static String getDayType(Integer day) {
+        if (weekend.contains(day)) {
+            return "주말";
+        }
+        return "평일";
+    }
 }
