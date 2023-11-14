@@ -1,8 +1,10 @@
 package model.event;
 
+import model.calendar.December;
 import model.menu.ChristmasMenu;
 import model.menu.Drink;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class ChristmasEvent {
@@ -29,6 +31,20 @@ public class ChristmasEvent {
 
     public static Integer getGiveChampagnePrice() {
         return giveChampagnePrice;
+    }
+
+    public static Map<String, Integer> ResultChristmasDDayDiscount(int day, int total, Map<String, Integer> order) {
+        Map<String, Object> dayData = December.getDate(day);
+
+        Map<String, Integer> discount = new LinkedHashMap<>();
+
+        applyChristmasDDayDiscount(day, dayData, discount);
+        applyWeekendDiscount(dayData, order, discount);
+        applyWeekdayDiscount(dayData, order, discount);
+        applySpecialDiscount(dayData, discount);
+        applyGiveChampagneEvent(total, discount);
+
+        return discount;
     }
 
     private static void applyChristmasDDayDiscount(int day, Map<String, Object> dayData, Map<String, Integer> discount) {
