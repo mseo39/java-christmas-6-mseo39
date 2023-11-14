@@ -131,6 +131,15 @@ public class ChristmasEventTest extends NsTest {
         assertThat(discount.get("증정 이벤트")).isEqualTo(25000);
     }
 
+    @Test
+    void 증정이벤트_미적용() {
+        Map<String, Integer> discount = new HashMap<>();
+
+        ChristmasEvent.applyGiveChampagneEvent(110000, discount);
+
+        assertThat(discount.size()).isEqualTo(0);
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
