@@ -28,6 +28,12 @@ public class DecemberTest extends NsTest {
         assertThat(result).isTrue();
     }
 
+    @Test
+    void 별구분_별아닐때_테스트() {
+        boolean result = December.isStar(1);
+        assertThat(result).isFalse();
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
