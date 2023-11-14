@@ -47,12 +47,12 @@ public class ChristmasEvent {
         return discount;
     }
 
-    private static void applyChristmasDDayDiscount(int day, Map<String, Object> dayData, Map<String, Integer> discount) {
+    public static void applyChristmasDDayDiscount(int day, Map<String, Object> dayData, Map<String, Integer> discount) {
         if (christmasDDayDiscountPeriodStart <= day && christmasDDayDiscountPeriodEnd >= day) {
             discount.put("크리스마스 디데이 할인", (Integer) dayData.get("할인금액"));
         }
     }
-    private static void applyWeekdayDiscount(Map<String, Object> dayData, Map<String, Integer> order, Map<String, Integer> discount) {
+    public static void applyWeekdayDiscount(Map<String, Object> dayData, Map<String, Integer> order, Map<String, Integer> discount) {
         if (dayData.get("엽업일").equals("평일")) {
             int count = ChristmasMenu.getCountForDessert(order);
             if (count != 0) {
@@ -61,7 +61,7 @@ public class ChristmasEvent {
         }
     }
 
-    private static void applyWeekendDiscount(Map<String, Object> dayData, Map<String, Integer> order, Map<String, Integer> discount) {
+    public static void applyWeekendDiscount(Map<String, Object> dayData, Map<String, Integer> order, Map<String, Integer> discount) {
         if (dayData.get("엽업일").equals("주말")) {
             int count = ChristmasMenu.getCountForMain(order);
             if (count != 0) {
@@ -70,16 +70,15 @@ public class ChristmasEvent {
         }
     }
 
-    private static void applySpecialDiscount(Map<String, Object> dayData, Map<String, Integer> discount) {
+    public static void applySpecialDiscount(Map<String, Object> dayData, Map<String, Integer> discount) {
         if (Boolean.parseBoolean(String.valueOf(dayData.get("별유무")))) {
             discount.put("특별 할인", starDayDiscount);
         }
     }
 
-    private static void applyGiveChampagneEvent(int total, Map<String, Integer> discount) {
+    public static void applyGiveChampagneEvent(int total, Map<String, Integer> discount) {
         if (giveChampagnePrice <= total) {
             discount.put("증정 이벤트", Drink.CHAMPAGNE.getPrice());
         }
     }
-
 }
