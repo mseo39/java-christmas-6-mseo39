@@ -16,6 +16,12 @@ public class DecemberTest extends NsTest {
         assertThat(dayType).isEqualTo("평일");
     }
 
+    @Test
+    void 평일주말구분_주말일때_테스트() {
+        String dayType = December.getDayType(1);
+        assertThat(dayType).isEqualTo("주말");
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
