@@ -5,6 +5,8 @@ import christmas.Application;
 import model.calendar.December;
 import org.junit.jupiter.api.Test;
 
+import java.util.Map;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 
@@ -32,6 +34,15 @@ public class DecemberTest extends NsTest {
     void 별구분_별아닐때_테스트() {
         boolean result = December.isStar(1);
         assertThat(result).isFalse();
+    }
+
+    @Test
+    void 달력초기화_테스트() {
+        December.init();
+        Map<String, Object> calender = December.getDate(3);
+        assertThat(calender.get("할인금액")).isEqualTo(1200);
+        assertThat(calender.get("영업일")).isEqualTo("평일");
+        assertThat(calender.get("별유무")).isEqualTo(true);
     }
 
     @Override
