@@ -8,7 +8,7 @@ public class VisitDate {
     private VisitDate() {
 
     }
-
+    /*날짜 범위를 확인 커밋메시지 실수*/
     public static int checkDate(String input) {
         int date = InputValid.stringToInteger(input, "날짜");
         if (DateStart > date || DateEnd < date) {
