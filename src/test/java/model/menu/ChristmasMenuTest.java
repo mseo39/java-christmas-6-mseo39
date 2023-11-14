@@ -20,6 +20,12 @@ public class ChristmasMenuTest extends NsTest {
         assertThat(isAppetizer).isTrue();
     }
 
+    @Test
+    void 메뉴가_애피타이저가_아닐때_테스트() {
+        boolean isAppetizer = ChristmasMenu.isValidAppetizer("제로콜라");
+        assertThat(isAppetizer).isFalse();
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
