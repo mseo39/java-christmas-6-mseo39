@@ -14,6 +14,12 @@ public class VisitDateTest extends NsTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 날짜입력_범위벗어날때_테스트() {
+        assertThatThrownBy(() -> VisitDate.checkDate("32"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
