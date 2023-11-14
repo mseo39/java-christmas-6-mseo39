@@ -34,4 +34,9 @@ public class OutputView {
         System.out.println(Phrase.TOTAL_ORDER_AMOUNT_BEFORE_DISCOUNT.getPhrase());
         System.out.println(formatNumber(price) + "원");
     }
+
+    public static void printGiftMenu(String result) {
+        System.out.println(Phrase.GIFT_MENU.getPhrase());
+        System.out.println(result);
+    }
 }
