@@ -63,7 +63,7 @@ public class December {
     private static Map<String, Object> createDiscountDate(int price, int day) {
         Map<String, Object> tmpData = new HashMap<>();
         tmpData.put("할인금액", price);
-        tmpData.put("엽업일", getDayType(day));
+        tmpData.put("영업일", getDayType(day));
         tmpData.put("별유무", isStar(day));
         return tmpData;
     }
