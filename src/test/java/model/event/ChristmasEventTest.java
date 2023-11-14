@@ -52,6 +52,22 @@ public class ChristmasEventTest extends NsTest {
         assertThat(discount.get("평일 할인")).isEqualTo(8092);
     }
 
+    @Test
+    void 평일할인_미적용() {
+        Map<String, Integer> discount = new HashMap<>();
+        Map<String, Object> dayData = new HashMap<>();
+        dayData.put("엽업일", "주말");
+
+        Map<String, Integer> order = new HashMap<>();
+        order.put("양송이수프", 1);
+        order.put("초코케이크", 3);
+        order.put("아이스크림", 1);
+
+        ChristmasEvent.applyWeekdayDiscount(dayData, order, discount);
+
+        assertThat(discount.size()).isEqualTo(0);
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
