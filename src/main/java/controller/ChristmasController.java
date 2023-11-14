@@ -61,4 +61,7 @@ public class ChristmasController {
             user.setTotalDiscount(benefit.values().stream().mapToInt(Integer::intValue).sum());
     }
 
+    public void requestPrintTotalBenefit() {
+        OutputView.printTotalBenefit(user.getTotalDiscount());
+    }
 }
