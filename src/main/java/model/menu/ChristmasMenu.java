@@ -78,7 +78,7 @@ public class ChristmasMenu {
         }
         return false;
     }
-    private static int getCountForDessert(Map<String, Integer> order) {
+    public static int getCountForDessert(Map<String, Integer> order) {
         int count = 0;
         for (Map.Entry<String, Integer> entry : order.entrySet()) {
             if (ChristmasMenu.isValidDessert(entry.getKey())) {
@@ -88,7 +88,7 @@ public class ChristmasMenu {
         return count;
     }
 
-    private static int getCountForMain(Map<String, Integer> order) {
+    public static int getCountForMain(Map<String, Integer> order) {
         int count = 0;
         for (Map.Entry<String, Integer> entry : order.entrySet()) {
             if (ChristmasMenu.isValidMain(entry.getKey())) {
