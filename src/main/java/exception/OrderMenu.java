@@ -27,4 +27,13 @@ public class OrderMenu {
 
         return num;
     }
+
+    public static void menuValid(String menuName) {
+        if (!ChristmasMenu.isValidAppetizer(menuName) &&
+                !ChristmasMenu.isValidDessert(menuName) &&
+                !ChristmasMenu.isValidDrink(menuName) &&
+                !ChristmasMenu.isValidMain(menuName)) {
+            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+        }
+    }
 }
