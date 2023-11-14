@@ -29,4 +29,9 @@ public class OutputView {
         DecimalFormat decimalFormat = new DecimalFormat("#,###");
         return decimalFormat.format(number);
     }
+
+    public static void printTotalOrderAmountBefore(int price) {
+        System.out.println(Phrase.TOTAL_ORDER_AMOUNT_BEFORE_DISCOUNT.getPhrase());
+        System.out.println(formatNumber(price) + "원");
+    }
 }
