@@ -1,6 +1,7 @@
 package controller;
 
 import model.User.ChristmasUser;
+import view.InputView;
 import view.OutputView;
 
 public class ChristmasController {
@@ -16,5 +17,9 @@ public class ChristmasController {
 
     public static void requestGreeting() {
         OutputView.printGreeting();
+    }
+
+    public void requestReadDate() {
+        user.setDate(InputView.readDate());
     }
 }
