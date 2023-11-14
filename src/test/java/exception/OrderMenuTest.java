@@ -52,6 +52,16 @@ public class OrderMenuTest extends NsTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 총수량_20넘을때_테스트() {
+        Map<String, Integer> order = new HashMap<>();
+        order.put("초코케이크", 1);
+        order.put("제로콜라", 20);
+
+        assertThatThrownBy(() -> OrderMenu.maxNumMenu(order))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
