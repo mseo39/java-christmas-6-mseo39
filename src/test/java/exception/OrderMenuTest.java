@@ -33,6 +33,12 @@ public class OrderMenuTest extends NsTest {
         assertThat(result).isEqualTo(1);
     }
 
+    @Test
+    void 없는메뉴일때_테스트() {
+        assertThatThrownBy(() -> OrderMenu.menuValid("초코우유"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
