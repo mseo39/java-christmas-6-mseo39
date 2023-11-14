@@ -48,4 +48,18 @@ public class OrderMenu {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
     }
+
+    public static void checkDrinkCount(Map<String, Integer> order) {
+        int drinkCount = 0;
+
+        for (Drink menu : Drink.values()) {
+            if (order.containsKey(menu.getName())) {
+                drinkCount++;
+            }
+        }
+
+        if (drinkCount == order.size()) {
+            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+        }
+    }
 }
