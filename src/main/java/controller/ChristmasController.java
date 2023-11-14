@@ -1,6 +1,7 @@
 package controller;
 
 import model.User.ChristmasUser;
+import model.calendar.December;
 import model.event.ChristmasEvent;
 import model.menu.ChristmasMenu;
 import view.InputView;
@@ -13,6 +14,32 @@ public class ChristmasController {
 
     public ChristmasController() {
         user = new ChristmasUser();
+    }
+
+    public void startEvent() {
+        December.init();
+        requestGreeting();
+        requestReadDate();
+        requestReadMenu();
+        requestPrintGuide();
+        printEvent();
+    }
+
+    public void printEvent(){
+        requestSection();
+        requestPrintMenu();
+        requestSection();
+        requestPrintAmountBefore();
+        requestSection();
+        requestPrintGiftMenu();
+        requestSection();
+        requestPrintBenefitsDetails();
+        requestSection();
+        requestPrintTotalBenefit();
+        requestSection();
+        requestPrintEstimatedAmountAfter();
+        requestSection();
+        requestPrintBadge();
     }
 
     public static void requestSection() {
