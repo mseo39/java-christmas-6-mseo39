@@ -1,7 +1,8 @@
-package exception;
+package christmas;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import christmas.Application;
+import exception.OrderMenu;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;

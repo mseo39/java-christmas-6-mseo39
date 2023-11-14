@@ -1,7 +1,8 @@
-package exception;
+package christmas;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import christmas.Application;
+import exception.InputValid;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;

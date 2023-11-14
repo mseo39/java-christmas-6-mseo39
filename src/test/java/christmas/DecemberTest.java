@@ -1,4 +1,4 @@
-package model.calender;
+package christmas;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import christmas.Application;

@@ -1,7 +1,8 @@
-package model.event;
+package christmas;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import christmas.Application;
+import model.event.Badge;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

@@ -1,7 +1,8 @@
-package model.menu;
+package christmas;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import christmas.Application;
+import model.menu.ChristmasMenu;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
