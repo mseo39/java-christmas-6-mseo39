@@ -39,4 +39,15 @@ public class OutputView {
         System.out.println(Phrase.GIFT_MENU.getPhrase());
         System.out.println(result);
     }
+
+    public static void printBenefitsDetails(Map<String, Integer> benefit, int price) {
+        System.out.println(Phrase.BENEFITS_DETAILS.getPhrase());
+        if (benefit.size() == 0 || price<10000) {
+            System.out.println("없음");
+            return;
+        }
+        for (Map.Entry<String, Integer> entry : benefit.entrySet()) {
+            System.out.println(entry.getKey() + ": -" + formatNumber(entry.getValue()) + "원");
+        }
+    }
 }
