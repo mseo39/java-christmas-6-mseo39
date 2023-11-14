@@ -21,6 +21,12 @@ public class OrderMenuTest extends NsTest {
         assertThat(itemInfo).contains("제로콜라", "1");
     }
 
+    @Test
+    void 수량1개미만일때_테스트() {
+        assertThatThrownBy(() -> OrderMenu.menuQuantityValid("0"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
