@@ -13,4 +13,8 @@ public class ChristmasController {
     public static void requestSection() {
         OutputView.printSection();
     }
+
+    public static void requestGreeting() {
+        OutputView.printGreeting();
+    }
 }
