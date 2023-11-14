@@ -1,5 +1,7 @@
 package model.event;
 
+import java.util.Map;
+
 public class ChristmasEvent {
     final private static Integer christmasDDayDiscountPeriodStart = 1;
     final private static Integer christmasDDayDiscountPeriodEnd = 25;
@@ -24,5 +26,11 @@ public class ChristmasEvent {
 
     public static Integer getGiveChampagnePrice() {
         return giveChampagnePrice;
+    }
+
+    private static void applyChristmasDDayDiscount(int day, Map<String, Object> dayData, Map<String, Integer> discount) {
+        if (christmasDDayDiscountPeriodStart <= day && christmasDDayDiscountPeriodEnd >= day) {
+            discount.put("크리스마스 디데이 할인", (Integer) dayData.get("할인금액"));
+        }
     }
 }
