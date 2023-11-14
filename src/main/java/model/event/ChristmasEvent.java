@@ -1,6 +1,7 @@
 package model.event;
 
 import model.menu.ChristmasMenu;
+import model.menu.Drink;
 
 import java.util.Map;
 
@@ -56,6 +57,12 @@ public class ChristmasEvent {
     private static void applySpecialDiscount(Map<String, Object> dayData, Map<String, Integer> discount) {
         if (Boolean.parseBoolean(String.valueOf(dayData.get("별유무")))) {
             discount.put("특별 할인", starDayDiscount);
+        }
+    }
+
+    private static void applyGiveChampagneEvent(int total, Map<String, Integer> discount) {
+        if (giveChampagnePrice <= total) {
+            discount.put("증정 이벤트", Drink.CHAMPAGNE.getPrice());
         }
     }
 
