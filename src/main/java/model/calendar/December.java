@@ -41,4 +41,11 @@ public class December {
         }
         return "평일";
     }
+
+    public static boolean isStar(Integer day) {
+        if (starDay.contains(day)) {
+            return true;
+        }
+        return false;
+    }
 }
