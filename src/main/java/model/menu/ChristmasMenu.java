@@ -40,4 +40,40 @@ public class ChristmasMenu {
         }
         return 0;
     }
+
+    public static boolean isValidAppetizer(String menuName) {
+        for (Appetizer menu : Appetizer.values()) {
+            if (menu.getName().equals(menuName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isValidDessert(String menuName) {
+        for (Dessert menu : Dessert.values()) {
+            if (menu.getName().equals(menuName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isValidDrink(String menuName) {
+        for (Drink menu : Drink.values()) {
+            if (menu.getName().equals(menuName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isValidMain(String menuName) {
+        for (Main menu : Main.values()) {
+            if (menu.getName().equals(menuName)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
