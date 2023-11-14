@@ -69,4 +69,8 @@ public class OutputView {
         System.out.println(Phrase.EVENT_BADGE.getPhrase());
         System.out.println(Badge.getBadgeType(price));
     }
+    public static void printSection() {
+        System.out.println("");
+    }
+
 }
