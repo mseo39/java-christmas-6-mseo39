@@ -1,5 +1,7 @@
 package model.event;
 
+import model.menu.ChristmasMenu;
+
 import java.util.Map;
 
 public class ChristmasEvent {
@@ -33,4 +35,13 @@ public class ChristmasEvent {
             discount.put("크리스마스 디데이 할인", (Integer) dayData.get("할인금액"));
         }
     }
+    private static void applyWeekdayDiscount(Map<String, Object> dayData, Map<String, Integer> order, Map<String, Integer> discount) {
+        if (!dayData.get("엽업일").equals("평일")) {
+            int count = ChristmasMenu.getCountForDessert(order);
+            if (count != 0) {
+                discount.put("평일 할인", count * weekdayPerDessertDiscount);
+            }
+        }
+    }
+
 }
