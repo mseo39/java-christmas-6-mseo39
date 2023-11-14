@@ -20,6 +20,12 @@ public class BadgeTest extends NsTest {
         assertThat(type).isEqualTo("트리");
     }
 
+    @Test
+    void 별배지반환_테스트() {
+        String type = Badge.getBadgeType(5000);
+        assertThat(type).isEqualTo("별");
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
