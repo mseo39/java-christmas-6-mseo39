@@ -53,7 +53,7 @@ public class ChristmasEvent {
         }
     }
     private static void applyWeekdayDiscount(Map<String, Object> dayData, Map<String, Integer> order, Map<String, Integer> discount) {
-        if (!dayData.get("엽업일").equals("평일")) {
+        if (dayData.get("엽업일").equals("평일")) {
             int count = ChristmasMenu.getCountForDessert(order);
             if (count != 0) {
                 discount.put("평일 할인", count * weekdayPerDessertDiscount);
@@ -62,7 +62,7 @@ public class ChristmasEvent {
     }
 
     private static void applyWeekendDiscount(Map<String, Object> dayData, Map<String, Integer> order, Map<String, Integer> discount) {
-        if (!dayData.get("엽업일").equals("주말")) {
+        if (dayData.get("엽업일").equals("주말")) {
             int count = ChristmasMenu.getCountForMain(order);
             if (count != 0) {
                 discount.put("주말 할인", count * weekdayPerDessertDiscount);
