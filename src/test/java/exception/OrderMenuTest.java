@@ -27,6 +27,12 @@ public class OrderMenuTest extends NsTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 수량1개이상일때_테스트() {
+        int result = OrderMenu.menuQuantityValid("1");
+        assertThat(result).isEqualTo(1);
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
