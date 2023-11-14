@@ -24,4 +24,9 @@ public class OutputView {
             System.out.println(entry.getKey() + " " + entry.getValue() + "개");
         }
     }
+
+    public static String formatNumber(double number) {
+        DecimalFormat decimalFormat = new DecimalFormat("#,###");
+        return decimalFormat.format(number);
+    }
 }
