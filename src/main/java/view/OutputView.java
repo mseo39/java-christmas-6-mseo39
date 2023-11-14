@@ -59,4 +59,9 @@ public class OutputView {
         }
         System.out.println("-" + formatNumber(price) + "원");
     }
+
+    public static void printEstimatedAmountAfter(int price) {
+        System.out.println(Phrase.ESTIMATED_PAYMENT_AMOUNT_AFTER_DISCOUNT.getPhrase());
+        System.out.println(formatNumber(price) + "원");
+    }
 }
