@@ -38,24 +38,34 @@ public class December {
     }
 
     public static void init() {
-        int price = ChristmasEvent.getChristmasDDayDiscountInitPrice();
-        int step_price = ChristmasEvent.getChristmasDDayDiscountStepPrice();
-        for (int i = 1; i < 32; i++) {
-            Map<String, Object> tmpData = new HashMap<>();
-            tmpData.put("할인금액", price);
-            tmpData.put("엽업일", getDayType(i));
-            tmpData.put("별유무", isStar(i));
-            date.put(i, tmpData);
+        initializeChristmasDiscountDates();
+        initializeDefaultDiscountDates();
+    }
 
-            price += step_price;
+    private static void initializeChristmasDiscountDates() {
+        int price = ChristmasEvent.getChristmasDDayDiscountInitPrice();
+        int stepPrice = ChristmasEvent.getChristmasDDayDiscountStepPrice();
+
+        for (int i = 1; i < 32; i++) {
+            Map<String, Object> tmpData = createDiscountDate(price, i);
+            date.put(i, tmpData);
+            price += stepPrice;
         }
+    }
+
+    private static void initializeDefaultDiscountDates() {
         for (int i = 26; i < 32; i++) {
-            Map<String, Object> tmpData = new HashMap<>();
-            tmpData.put("할인금액", 0);
-            tmpData.put("엽업일", getDayType(i));
-            tmpData.put("별유무", isStar(i));
+            Map<String, Object> tmpData = createDiscountDate(0, i);
             date.put(i, tmpData);
         }
+    }
+
+    private static Map<String, Object> createDiscountDate(int price, int day) {
+        Map<String, Object> tmpData = new HashMap<>();
+        tmpData.put("할인금액", price);
+        tmpData.put("엽업일", getDayType(day));
+        tmpData.put("별유무", isStar(day));
+        return tmpData;
     }
 
     public static String getDayType(Integer day) {
