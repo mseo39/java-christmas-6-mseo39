@@ -26,6 +26,12 @@ public class BadgeTest extends NsTest {
         assertThat(type).isEqualTo("별");
     }
 
+    @Test
+    void 배지없음반환_테스트() {
+        String type = Badge.getBadgeType(4999);
+        assertThat(type).isEqualTo("없음");
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
