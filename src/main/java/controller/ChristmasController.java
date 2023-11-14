@@ -30,4 +30,8 @@ public class ChristmasController {
     public static void requestPrintGuide() {
         OutputView.printBenefitsGuide(user.getMonth(), user.getDay());
     }
+
+    public void requestPrintMenu() {
+        OutputView.printMenu(user.getOrder());
+    }
 }
