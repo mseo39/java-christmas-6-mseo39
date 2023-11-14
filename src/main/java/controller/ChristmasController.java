@@ -64,4 +64,12 @@ public class ChristmasController {
     public void requestPrintTotalBenefit() {
         OutputView.printTotalBenefit(user.getTotalDiscount());
     }
+    public void requestPrintEstimatedAmountAfter() {
+        if (ChristmasEvent.getGiveChampagnePrice() <= user.getTotalPrice()) {
+            OutputView.printEstimatedAmountAfter(user.getTotalPrice() - user.getTotalDiscount() + 25000);
+            return;
+        }
+        OutputView.printEstimatedAmountAfter(user.getTotalPrice() - user.getTotalDiscount());
+    }
+
 }
