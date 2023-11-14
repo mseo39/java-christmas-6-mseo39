@@ -50,4 +50,13 @@ public class OutputView {
             System.out.println(entry.getKey() + ": -" + formatNumber(entry.getValue()) + "원");
         }
     }
+
+    public static void printTotalBenefit(int price) {
+        System.out.println(Phrase.TOTAL_BENEFITS_DETAILS.getPhrase());
+        if(price==0){
+            System.out.println(price + "원");
+            return;
+        }
+        System.out.println("-" + formatNumber(price) + "원");
+    }
 }
