@@ -1,5 +1,7 @@
 package model.User;
 
+import model.menu.ChristmasMenu;
+
 import java.util.Map;
 
 public class ChristmasUser {
@@ -43,5 +45,16 @@ public class ChristmasUser {
 
     public int getTotalDiscount() {
         return totalDiscount;
+    }
+
+    public void sumAmountBefore() {
+        int price = 0;
+        for (Map.Entry<String, Integer> entry : this.getOrder().entrySet()) {
+            price += ChristmasMenu.sumAppetizer(entry.getKey(), entry.getValue());
+            price += ChristmasMenu.sumDessert(entry.getKey(), entry.getValue());
+            price += ChristmasMenu.sumDrink(entry.getKey(), entry.getValue());
+            price += ChristmasMenu.sumMain(entry.getKey(), entry.getValue());
+        }
+        this.setTotalPrice(price);
     }
 }
