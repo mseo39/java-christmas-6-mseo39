@@ -40,6 +40,17 @@ public class ChristmasMenuTest extends NsTest {
         assertThat(count).isEqualTo(4);
     }
 
+    @Test
+    void 메인개수_확인_테스트() {
+        Map<String, Integer> order = new HashMap<>();
+        order.put("티본스테이크", 3);
+        order.put("초코케이크", 3);
+        order.put("아이스크림", 1);
+
+        int count = ChristmasMenu.getCountForMain(order);
+        assertThat(count).isEqualTo(3);
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
