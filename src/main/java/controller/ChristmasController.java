@@ -1,9 +1,8 @@
 package controller;
 
-import model.User.ChristmasUser;
+import model.user.ChristmasUser;
 import model.calendar.December;
 import model.event.ChristmasEvent;
-import model.menu.ChristmasMenu;
 import view.InputView;
 import view.OutputView;
 
