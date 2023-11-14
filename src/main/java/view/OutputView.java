@@ -64,4 +64,9 @@ public class OutputView {
         System.out.println(Phrase.ESTIMATED_PAYMENT_AMOUNT_AFTER_DISCOUNT.getPhrase());
         System.out.println(formatNumber(price) + "원");
     }
+
+    public static void printEventBadge(int price) {
+        System.out.println(Phrase.EVENT_BADGE.getPhrase());
+        System.out.println(Badge.getBadgeType(price));
+    }
 }
