@@ -22,4 +22,9 @@ public class ChristmasController {
     public void requestReadDate() {
         user.setDate(InputView.readDate());
     }
+
+    public void requestReadMenu() {
+        user.setOrder(InputView.readMenu());
+    }
+
 }
