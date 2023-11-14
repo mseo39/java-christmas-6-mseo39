@@ -1,5 +1,7 @@
 package model.calendar;
 
+import model.event.ChristmasEvent;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,6 +35,27 @@ public class December {
     }
 
     private December() {
+    }
+
+    public static void init() {
+        int price = ChristmasEvent.getChristmasDDayDiscountInitPrice();
+        int step_price = ChristmasEvent.getChristmasDDayDiscountStepPrice();
+        for (int i = 1; i < 32; i++) {
+            Map<String, Object> tmpData = new HashMap<>();
+            tmpData.put("할인금액", price);
+            tmpData.put("엽업일", getDayType(i));
+            tmpData.put("별유무", isStar(i));
+            date.put(i, tmpData);
+
+            price += step_price;
+        }
+        for (int i = 26; i < 32; i++) {
+            Map<String, Object> tmpData = new HashMap<>();
+            tmpData.put("할인금액", 0);
+            tmpData.put("엽업일", getDayType(i));
+            tmpData.put("별유무", isStar(i));
+            date.put(i, tmpData);
+        }
     }
 
     public static String getDayType(Integer day) {
